@@ -1,6 +1,5 @@
 package com.jluqgon214.blackjack.cardgame.ui
 
-import android.content.Context
 import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -14,22 +13,22 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.jluqgon214.blackjack.cardgame.data.Baraja
+
 @Composable
 fun BlackJackScreen(
     navController: NavHostController,
     blackJackViewModel: BlackJackViewModel
 ) {
-   navController.navigate("BlackJackLayout")
+    navController.navigate("BlackJackLayout")
 }
 
 
 @Composable
-fun BlackJackLayout(blackJackViewModel: BlackJackViewModel) {
+fun BlackJackLayout(navController: NavHostController, blackJackViewModel: BlackJackViewModel) {
     Column(
         Modifier
             .fillMaxSize()
@@ -73,6 +72,7 @@ fun BlackJackLayout(blackJackViewModel: BlackJackViewModel) {
     }
 
 }
+
 @Composable
 fun mostrarCarta(idCarta: Int) {
     Image(

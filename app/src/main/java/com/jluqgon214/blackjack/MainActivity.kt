@@ -8,12 +8,13 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.jluqgon214.blackjack.cardgame.ui.BlackJackLayout
 import com.jluqgon214.blackjack.cardgame.ui.BlackJackViewModel
+import com.jluqgon214.blackjack.cardgame.ui.BlackJackScreen
+import com.jluqgon214.blackjack.cardgame.ui.StartScreen
 import com.jluqgon214.blackjack.ui.theme.BlackJackTheme
 
 class MainActivity : ComponentActivity() {
@@ -31,9 +32,12 @@ class MainActivity : ComponentActivity() {
                     val navController = rememberNavController()
 
                     NavHost(
-                        navController = navController, startDestination = "BlackJackStart"
+                        navController = navController, startDestination = "StartScreen"
                     ){
-                        composable(BlackJackScreen.route) {
+                        composable(route = "StartScreen") {
+                            StartScreen(navController = navController)
+                        }
+                        composable(route = "BlackJackLayout") {
                             BlackJackLayout(navController, blackJackViewModel)
                         }
                     }
